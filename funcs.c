@@ -75,7 +75,7 @@ int get_next_char(char *arquivo, buffer *buf)
     {
       return EOF;
     }
-    if (buf->lista[255] == '\n' || buf->lista[255] == 0)
+    if (buf->lista[255] == '\n' || buf->lista[255] == '\0')
     {
       buf->flag_acabou = 1;
       // leu toda linha
@@ -117,4 +117,34 @@ void reset(char *vet)
   {
     vet[i] = '\0';
   }
+}
+
+int isNumber(char c)
+{
+  if( 48 <= c  && c <= 57){ //verifica na tabela ascii se e um numero
+    return 1;
+  }else{
+    return 0;
+  }
+}
+
+int isLetter(char c)
+{
+  if( (65 <= c && 90 >= c) || (97 <= c && 122 >= c)){
+    return 1;
+  }else{
+    return 0;
+  }
+}
+
+void lexer(char* buffer)  //recebe o buffer com os caracteres
+{
+  int indice = 0;
+  
+  if(buffer[indice] == 'i' && buffer[indice + 1] == 'f'){
+    printf("IF"); //token IF
+  }else if(1){
+      // proxs
+  }
+
 }
